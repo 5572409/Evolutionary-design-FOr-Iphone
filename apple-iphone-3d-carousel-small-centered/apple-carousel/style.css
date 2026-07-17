@@ -1,0 +1,23 @@
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;background:#050505;color:#f5f5f7;overflow:hidden}
+body{display:grid;place-items:center}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.shell{position:relative;z-index:2;width:min(620px,96vw);height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#a1a1a6;margin-bottom:6px}
+h1{font-size:clamp(25px,4vw,38px);margin:0;letter-spacing:-.04em}
+#modelMeta{margin:6px 0 16px;color:#a1a1a6;font-size:12px}
+.stage{width:100%;height:270px;margin:0 auto;perspective:1250px;touch-action:none;cursor:grab}
+.stage:active{cursor:grabbing}
+.track{position:relative;width:100%;height:100%;transform-style:preserve-3d}
+.card{position:absolute;left:50%;top:50%;width:125px;height:220px;margin-left:-62.5px;margin-top:-110px;border-radius:23px;background:linear-gradient(160deg,rgba(255,255,255,.13),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.17);box-shadow:0 24px 58px rgba(0,0,0,.52);overflow:hidden;transform-style:preserve-3d;transition:transform .72s cubic-bezier(.2,.75,.2,1),opacity .5s,filter .5s;backdrop-filter:blur(18px)}
+.card::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,255,255,.16),transparent 34%,transparent 67%,rgba(255,255,255,.045));pointer-events:none}
+.phone-wrap{position:absolute;inset:12px 9px 42px;display:grid;place-items:center;transform:translateZ(30px);background:transparent;overflow:visible}
+.phone-wrap img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;background:transparent;filter:drop-shadow(0 12px 16px rgba(0,0,0,.45));transition:transform .8s cubic-bezier(.2,.75,.2,1);user-select:none;-webkit-user-drag:none}
+.card.active .phone-wrap img{transform:translateY(-1px) scale(1.01)}
+.card-label{position:absolute;left:6px;right:6px;bottom:13px;font-size:11px;font-weight:650;letter-spacing:-.02em;transform:translateZ(24px)}
+.nav{display:flex;align-items:center;gap:15px;margin-top:9px}
+.nav button{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:white;font-size:16px;cursor:pointer;transition:.25s}
+.nav button:hover{background:rgba(255,255,255,.16);transform:translateY(-1px)}
+#dots{display:flex;gap:6px}.dot{width:5px;height:5px;border-radius:50%;background:#6e6e73;transition:.3s}.dot.active{width:17px;border-radius:999px;background:#f5f5f7}
+small{margin-top:10px;color:#6e6e73;font-size:10px}
+@media(max-width:600px){.shell{width:100vw;height:100vh}.stage{height:245px}.card{width:112px;height:198px;margin-left:-56px;margin-top:-99px;border-radius:21px}.phone-wrap{inset:10px 8px 38px}.card-label{font-size:10px;bottom:12px}}
